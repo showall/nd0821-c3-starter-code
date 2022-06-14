@@ -1,4 +1,5 @@
 numpy
+dvc
 pandas
 pandas-profiling
 scikit-learn

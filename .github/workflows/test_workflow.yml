@@ -36,4 +36,6 @@ jobs:
       - name: Run Flake8
         run: flake8
       - name: Run pytest
-        run: pytest
+        run: |
+          cd starter
+          pytest

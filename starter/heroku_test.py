@@ -22,7 +22,7 @@ def test_heroku():
         "native-country": "United-States",
     }
     r = requests.post("https://nddemoprojectapp.herokuapp.com/predict/",
-                    json=data)
+                      json=data)
     print(r.status_code)
     print(r.json())
     # assert r.status_code == 200

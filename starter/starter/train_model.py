@@ -11,8 +11,8 @@ from ml.model import train_model, compute_model_metrics
 sys.path.append("../starter")
 try:
     from slices import slices
-except:
-    raise
+except FileNotFoundError:
+    pass
 
 # Add code to load in the data.
 data = pd.read_csv("data/cleaned_census.csv")

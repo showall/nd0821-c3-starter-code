@@ -3,13 +3,16 @@ import os
 import sys
 from sklearn.model_selection import train_test_split
 import pandas as pd
-sys.path.append("../starter")
-from slices import slices
-# Add the necessary imports for the starter code.
 from ml.data import process_data
 import pickle
 from ml.model import train_model, compute_model_metrics
 
+
+sys.path.append("../starter")
+try:
+    from slices import slices
+except:
+    pass
 
 # Add code to load in the data.
 data = pd.read_csv("data/cleaned_census.csv")

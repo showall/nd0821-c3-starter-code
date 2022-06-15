@@ -1,14 +1,11 @@
 # Put the code for your API here.
 import os
-import sys
-from typing import Union
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 from starter.ml.model import inference
 from starter.ml.data import process_data
 import pickle
 import pandas as pd
-import numpy as np
 
 
 if "DYNO" in os.environ and os.path.isdir(".dvc"):

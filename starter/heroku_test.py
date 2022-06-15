@@ -2,7 +2,7 @@
 Heroku test script
 """
 import requests
-import pytest
+
 
 def test_heroku():
     data = {
@@ -19,12 +19,14 @@ def test_heroku():
         "capital-gain": 0,
         "capital-loss": 0,
         "hours-per-week": 40,
-        "native-country": "United-States"
-        }
-    r = requests.post('https://nddemoprojectapp.herokuapp.com/predict/', json=data)
-    print (r.status_code)
-    print (r.json())
-    #assert r.status_code == 200
+        "native-country": "United-States",
+    }
+    r = requests.post("https://nddemoprojectapp.herokuapp.com/predict/", 
+        json=data)
+    print(r.status_code)
+    print(r.json())
+    # assert r.status_code == 200
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     test_heroku()

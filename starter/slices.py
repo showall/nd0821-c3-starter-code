@@ -26,7 +26,7 @@ def slices(model, cat, X, encoder, lb, cat_features):
     with open("slice_output.txt", "a") as f:
         print(cat, file=f)
         for category in cat:
-            temp = X[X[category]==X[category][0]]
+            temp = X[X[category] == X[category][0]]
             X_temp, y_temp, encoder, lb = process_data(
                 temp,
                 categorical_features=cat_features,

@@ -8,8 +8,8 @@ client = TestClient(app)
 def test_welcome_message():
     response = client.get("/")
     assert response.status_code == 200
-    assert response.json() == {"greeting": "Hello, thank you \
-    for grading my project"}
+    assert response.json() == {"greeting": 
+    "Hello, thank you for grading my project"}
 
 
 def test_predict_gt50k():

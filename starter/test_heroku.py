@@ -4,7 +4,7 @@ Heroku test script
 import requests
 
 
-def test_heroku():
+def check_heroku():
     data = {
         "age": 38,
         "workclass": "Private",
@@ -29,4 +29,4 @@ def test_heroku():
 
 
 if __name__ == "__main__":
-    test_heroku()
+    check_heroku()

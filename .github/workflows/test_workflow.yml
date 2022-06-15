@@ -31,7 +31,7 @@ jobs:
         uses: iterative/setup-dvc@v1
       - name: Pull data from DVC
         run: |
-          cd app
+          cd starter
           dvc pull
       - name: Run Flake8
         run: flake8

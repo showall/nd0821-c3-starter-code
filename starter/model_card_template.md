@@ -19,7 +19,7 @@ The training data from 80% of the publicly available data from https://archive.i
 The evaluation data from 20% of the publicly available data from https://archive.ics.uci.edu/ml/datasets/census+income. 
 
 ## Metrics
-The model was evaluated using Precision, recall and F-beta scores.
+The model was evaluated using Precision, recall and F-beta scores. The score obtain for the model is precision :0.7924 , recall :0.5603 , fbeta:0.656. 
 
 ## Ethical Considerations
 The use of race and gender alludes to the fact that there are possibilities of work income disparities between race and/or gender groups. 

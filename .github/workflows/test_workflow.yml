@@ -1,9 +1,14 @@
 name: Test pipeline
-
 on:
-  schedule:
-  - cron: "1 * * * *"
+  # Triggers the workflow on pull request events but only for the master branch
+  pull_request_target:
+    types: [opened, reopened]
 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+# on:
+#   schedule:
+#   - cron: "1 * * * *"
 jobs:
   test:
     runs-on: ubuntu-latest

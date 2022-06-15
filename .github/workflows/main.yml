@@ -2,7 +2,7 @@ name: Test pipeline
 
 on:
   schedule:
-  - cron: "5 * * * *"
+  - cron: "1 * * * *"
 
 jobs:
   test:

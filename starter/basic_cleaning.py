@@ -1,6 +1,7 @@
 import sys
 import pandas as pd
-
+import path
+import os
 
 def remove_space():
     """ Trim spaces and save file back as a csv."""

@@ -40,6 +40,7 @@ with open("./model/lb.pkl", "rb") as f:
 
 app = FastAPI()
 
+
 class employee(BaseModel):
     age: int = Field(example=54)
     workclass: str = Field(example="Private")
@@ -54,55 +55,67 @@ class employee(BaseModel):
     capital_gain: int = Field(alias="capital-gain", example=0)
     capital_loss: int = Field(alias="capital-loss", example=0)
     hours_per_week: int = Field(alias="hours-per-week", example=40)
-    native_country: str = Field(alias="native-country", example="United-States")
+    native_country: str = Field(alias="native-country",
+                                example="United-States")
 
     class Config:
         allow_population_by_field_name = True
+
 
 @app.get("/")
 async def welcome_message():
     return {"greeting": "Hello, thank you for grading my project"}
 
+
 @app.post("/predict")
 async def predict(person: employee):
-    array = [[
-                     person.age,
-                     person.workclass,
-                     person.fnlgt,
-                     person.education,
-                     person.education_num,
-                     person.marital_status,
-                     person.occupation,
-                     person.relationship,
-                     person.race,
-                     person.sex,
-                     person.capital_gain,
-                     person.capital_loss,
-                     person.hours_per_week,
-                     person.native_country
-                     ]]
+    array = [
+        [
+            person.age,
+            person.workclass,
+            person.fnlgt,
+            person.education,
+            person.education_num,
+            person.marital_status,
+            person.occupation,
+            person.relationship,
+            person.race,
+            person.sex,
+            person.capital_gain,
+            person.capital_loss,
+            person.hours_per_week,
+            person.native_country,
+        ]
+    ]
 
-    df = pd.DataFrame(data=array, columns=[
-        "age",
-        "workclass",
-        "fnlgt",
-        "education",
-        "education-num",
-        "marital-status",
-        "occupation",
-        "relationship",
-        "race",
-        "sex",
-        "capital-gain",
-        "capital-loss",
-        "hours-per-week",
-        "native-country"
-    ])
+    df = pd.DataFrame(
+        data=array,
+        columns=[
+            "age",
+            "workclass",
+            "fnlgt",
+            "education",
+            "education-num",
+            "marital-status",
+            "occupation",
+            "relationship",
+            "race",
+            "sex",
+            "capital-gain",
+            "capital-loss",
+            "hours-per-week",
+            "native-country",
+        ],
+    )
 
-    processed_df, _, _, _ = process_data(df, categorical_features=cat_features, label=None, training=False, encoder=encoder, lb=lb)
+    processed_df, _, _, _ = process_data(
+        df,
+        categorical_features=cat_features,
+        label=None,
+        training=False,
+        encoder=encoder,
+        lb=lb,
+    )
     prediction = inference(model, processed_df)
     prediction = lb.inverse_transform(prediction)[0]
-    return ({"prediction": prediction})
-    
-
-
+    return {"prediction": prediction}

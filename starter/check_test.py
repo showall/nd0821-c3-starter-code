@@ -1,6 +1,7 @@
 import pytest
 import pandas as pd
 
+
 @pytest.fixture
 def raw_data():
     """
@@ -9,6 +10,7 @@ def raw_data():
     df = pd.read_csv("data/census.csv")
     return df
 
+
 @pytest.fixture
 def cleaned_data():
     """
@@ -16,6 +18,7 @@ def cleaned_data():
     """
     df = pd.read_csv("data/cleaned_census.csv")
     return df
+
 
 def test_basic_cleaning(raw_data, cleaned_data):
     """
@@ -30,19 +33,25 @@ def test_len_label(cleaned_data):
     """
     assert len(cleaned_data.salary.unique()) == 2
 
+
 def test_datatype_features(cleaned_data):
     """
     Check to see features of categories are object
     """
     cat_features = [
-    "workclass",
-    "education",
-    "marital-status",
-    "occupation",
-    "relationship",
-    "race",
-    "sex",
-    "native-country",]
+        "workclass",
+        "education",
+        "marital-status",
+        "occupation",
+        "relationship",
+        "race",
+        "sex",
+        "native-country",
+    ]
 
-    check_cat_features = [i for i in cleaned_data.columns if cleaned_data[i].dtypes == object and i != "salary"]
+    check_cat_features = [
+        i
+        for i in cleaned_data.columns
+        if cleaned_data[i].dtypes == object and i != "salary"
+    ]
     assert check_cat_features == cat_features

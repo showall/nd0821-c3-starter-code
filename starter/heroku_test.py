@@ -21,8 +21,8 @@ def test_heroku():
         "hours-per-week": 40,
         "native-country": "United-States",
     }
-    r = requests.post("https://nddemoprojectapp.herokuapp.com/predict/", 
-        json=data)
+    r = requests.post("https://nddemoprojectapp.herokuapp.com/predict/",
+                    json=data)
     print(r.status_code)
     print(r.json())
     # assert r.status_code == 200

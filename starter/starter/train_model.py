@@ -12,7 +12,7 @@ sys.path.append("../starter")
 try:
     from slices import slices
 except:
-    pass
+    raise
 
 # Add code to load in the data.
 data = pd.read_csv("data/cleaned_census.csv")
